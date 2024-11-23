@@ -71,6 +71,7 @@ function newCard() {
 
     /* Displaying the card and updating the score.*/
     let number = Math.floor(randomNumber / 4) + 2;
+
     document.getElementById('card'+cardCount).innerHTML = "<img class='card-image-front' src='images/PNG-cards-1.3/"+number+"_of_"+shape+".png'>";
     
     if (number >= 12) number = 10;
@@ -78,7 +79,7 @@ function newCard() {
 
     if (number == 11) aceCount++;
 
-    while (aceCount > 0 && score > 21) {
+    while ((aceCount > 0) && (score > 21)) {
         aceCount--;
         score -= 10; 
     }
@@ -125,7 +126,7 @@ function stand() {
 
         if (num == 11) daceCount++;
          
-        while (daceCount > 0 && dscore > 21) {
+        while ((daceCount > 0) && (dscore > 21)) {
             daceCount--;
             dscore -= 10; 
         }
@@ -191,7 +192,9 @@ function restart() {
     document.getElementById("winLose").style.display = "none";
     cardCount = 1;
     score = 0;
+    aceCount = 0;
 
+    daceCount = 0;
     dcardCount = 1;
     dscore = 0;
     cards = [];
