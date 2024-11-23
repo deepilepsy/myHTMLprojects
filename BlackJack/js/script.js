@@ -20,7 +20,6 @@ function startGame() {
     for (let i = 0; i < 52; i++)
         cards[cards.length] = i;
 
-
     let randomNumber = Math.floor(Math.random() * 52)
     while (cards[randomNumber] == -1) {
         randomNumber = Math.floor(Math.random() * 52);
@@ -203,6 +202,7 @@ function restart() {
 }
 
 function gameCounter() {
+    var backgroundColor;
     if (winLose == "true") {
         winLoseStatement = "Win";
         winLoseColor = "greenyellow";
@@ -213,8 +213,13 @@ function gameCounter() {
         winLoseStatement = "Tie";
         winLoseColor = "aliceblue";
     }
+    if (gameCount % 2 == 0) {
+        backgroundColor = "cornflowerblue";
+    } else {
+        backgroundColor = "dodgerblue";
+    }
     document.getElementById("tbody").innerHTML += 
-    "<tr>" + 
+    "<tr bgcolor='"+ backgroundColor + "'>" + 
         "<td class='table-body' id='gameCount'>" + gameCount + "</td>" +
         "<td class='table-body' id='dealersScoreTable'>"+ dscore + "</td>" + 
         "<td class='table-body' id='yourScoreTable'>"+ score + "</td>" + 
