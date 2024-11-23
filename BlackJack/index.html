@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackJack</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/scoreTable.css">
+</head>
+<body>
+    <div id="top-tab">
+        <div id="left-section">
+            <button type="reset" onClick="window.location.reload();" id="reset-button">Reset</button>
+        </div>
+        <div id="middle-section">
+            <p id="game-title">BLACKJACK GAME</p>
+        </div>
+        <div id="right-section"></div>
+    </div>
+
+    <div id="game-page">
+        <p class="whoseCards">Dealer's Cards:</p>
+        <div class="card-tab">
+            <div class="cards" id="dcard1">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="dcard2">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="dcard3">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="dcard4">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="dcard5">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="dcard6">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="dcard7">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="dcard8">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="dcard9">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+        </div>    
+        <p class="whoseCards">Your Cards:</p>    
+        <div class="card-tab">
+            <div class="cards" id="card1">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="card2">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="card3">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="card4">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="card5">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="card6">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="card7">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="card8">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+            <div class="cards" id="card9">
+                <img class="card-image" src="images/PNG-cards-1.3/back.png">
+            </div>
+        </div>
+
+        <div id="startGame">
+            <button id="start" onclick="startGame()">Start</button>
+        </div>
+
+        <div id="game-tab">
+            <div id="dealersTab">
+                <p id="dealersScore">Dealer's Score:</p>
+                <p id="dealersScoreResult">&nbsp;</p>
+            </div>
+            <div class="text">
+                <p id="score">Your Score: </p>
+                <p id="scoreResult">&nbsp;</p>
+                <p id="winLose">&nbsp;</p>
+            </div>
+            <div class="buttons">
+                <button id="newCard" onclick="newCard()">New Card</button>
+                <button id="stand" onclick="stand()">Stand</button>
+                <button id="restart" onclick="restart()">New Game</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="score-table-tab">
+        <div id="score-table-div">
+            <table id="score-table" border="0">
+                <thead id="thead">
+                    <tr>
+                        <th class="table-header">Game #</th>
+                        <th class="table-header">Dealer's Score</th>
+                        <th class="table-header">Your Score</th>
+                        <th class="table-header">Win or Lose</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <!-- <tr> -->
+                    <!-- <td class="table-body" id="gameCount"></td> -->
+                    <!-- <td class="table-body" id="dealersScore"></td> -->
+                    <!-- <td class="table-body" id="yourScore"></td> -->
+                    <!-- <td class="table-body" id="winOrLose"></td> -->
+                    <!-- </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
