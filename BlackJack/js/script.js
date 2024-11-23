@@ -225,7 +225,7 @@ function gameCounter() {
         tieCounter++;
         document.getElementById("tie").innerHTML = tieCounter + " Tie";
     }
-    let winRate = Math.floor((winCounter / gameCount) * 100);
+    let winRate = Math.floor((winCounter / (gameCount - tieCounter)) * 100);
     document.getElementById("winRate").innerHTML = "Winrate: %" + winRate;
 
     if (gameCount % 2 == 0) {
