@@ -1,3 +1,7 @@
+var winCounter = 0;
+var loseCounter = 0;
+var tieCounter = 0;
+
 var gameCount = 1;
 var winLose = "false";
 var winLoseStatement;
@@ -206,13 +210,22 @@ function gameCounter() {
     if (winLose == "true") {
         winLoseStatement = "Win";
         winLoseColor = "greenyellow";
+        winCounter++;
+        document.getElementById("win").innerHTML = winCounter + " Win";
     } else if (winLose == "false") {
         winLoseStatement = "Lose";
         winLoseColor = "rgb(249, 162, 162)";
+        loseCounter++;
+        document.getElementById("lose").innerHTML = loseCounter + " Lose";
     } else if (winLose == "tie") {
         winLoseStatement = "Tie";
-        winLoseColor = "aliceblue";
+        winLoseColor = "rgb(220, 219, 219)";
+        tieCounter++;
+        document.getElementById("tie").innerHTML = tieCounter + " Tie";
     }
+    let winRate = Math.floor((winCounter / gameCount) * 100);
+    document.getElementById("winRate").innerHTML = "Winrate: %" + winRate;
+
     if (gameCount % 2 == 0) {
         backgroundColor = "cornflowerblue";
     } else {
