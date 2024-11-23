@@ -1,0 +1,273 @@
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-image: linear-gradient(black, white);
+    background-size: 100%;
+    background-image: url("../images/whiteBackground.jpg");
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#top-tab {
+    display: flex;
+    flex-direction: row;
+    background-color:cornflowerblue;
+    border-radius: 10px;
+}
+
+#left-section {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+#middle-section {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+#right-section {
+    flex: 1;
+}
+
+#reset-button {
+    display: inline-block;
+    font-size: large;
+    color:cornflowerblue;
+    background-color: rgb(254, 255, 247);
+    border-color: aliceblue;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    margin-left: 10%;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+#reset-button:hover {
+    color: rgb(254, 255, 247);
+    background-color: cornflowerblue;
+    border-color: rgb(254, 255, 247);
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+#reset-button:active {
+    background-color: rgb(22, 95, 20);
+}
+
+#game-title {
+    display: inline-block;
+    font-weight: bold;
+    color: aliceblue;
+    font-size: larger;
+}
+
+#game-page {
+    display: inline-block;
+    background-color: cornflowerblue;
+    margin-top: 20px;
+    border-radius: 10px;
+    height: 100%;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.card-tab {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    border-width: 2px;
+    border-color: aliceblue;
+    margin-right: 5%;
+
+}
+
+.card-image {
+    display: inline-block;
+    margin-right: 2%;
+    width: 100%;
+}
+.card-image-front {
+    display: inline-block;
+    margin-right: 2%;
+    width: 68%;
+    margin-left: 20%;
+}
+
+#game-tab {
+    display: none; /* should be flex */
+    flex-direction: column;
+    background-color: aliceblue;
+    width: 40%;
+    border-radius: 10px;
+    margin-left: 30%;
+    margin-top: 3%;
+}
+
+.text {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+}
+#dealersTab {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+#dealersScore {
+    color: cornflowerblue;
+    font-size: large;
+    font-weight: bold;
+}
+#dealersScoreResult {
+    color: black;
+    margin-left: 1%;
+    font-size: large;
+}
+#score {
+    display: flex; /* Should be flex*/
+    justify-content: center;
+    color: cornflowerblue;
+    font-size: large;
+    font-weight: bold;
+}
+#scoreResult {
+    color: black;
+    margin-left: 3%;
+    font-size: large;
+}
+#winLose {
+    color: rgb(55, 217, 85);
+    font-size: large;
+    font-weight: bold;
+    margin-left: 5%;
+}
+.buttons {
+    display: flex; /* Should be flex*/
+    justify-content: center;
+}
+#newCard {
+    display: inline-block; /* Should be inline-block*/
+    background-color: rgb(233, 255, 231);
+    border-color: cornflowerblue;
+    border-style: solid;
+    border-radius: 10px;
+    color: cornflowerblue;
+    margin-bottom: 10%;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 3%;
+    transition: all 0.3s;
+}
+#newCard:hover {
+    background-color: cornflowerblue;
+    color: rgb(233, 255, 231);
+    border-width: 0px;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+#newCard:active {
+    opacity: 0.7;
+}
+#stand {
+    display: inline-block; /* Should be inline-block*/
+    background-color: rgb(74, 158, 242);
+    border-color: cornflowerblue;
+    border-style: solid;
+    border-radius: 10px;
+    color: aliceblue;
+    margin-bottom: 10%;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 3%;
+    transition: all 0.3s;
+}
+#stand:hover {
+    background-color: rgb(233, 255, 231);
+    border-color: rgb(74, 158, 242);
+    color: rgb(74, 158, 242);
+}
+#stand:active {
+    opacity: 0.7;
+}
+#restart {
+    display: none; /* Should be inline-block*/
+    background-color: rgb(217, 80, 101);
+    border-width: 0px;
+    border-radius: 10px;
+    color: rgb(233, 255, 231);
+    margin-bottom: 10%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#restart:hover {
+    background-color: rgb(233, 255, 231);
+    border-color: rgb(217, 80, 101);
+    border-width: 2px;
+    border-style: solid;
+    color: rgb(217, 80, 101);
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+#restart:active {
+    opacity: 0.7;
+}
+#start {
+    display: inline-block; /* Should be inline-block*/
+    background-color: rgb(233, 255, 231);
+    border-color: cornflowerblue;
+    border-style: solid;
+    border-radius: 10px;
+    color: cornflowerblue;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+#start:hover {
+    background-color: cornflowerblue;
+    border-width: 0px;
+    color: rgb(233, 255, 231);
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-top: 4px;
+}
+#start:active {
+    opacity: 0.7;
+}
+
+#startGame {
+    display: flex; /* should be flex*/
+    justify-content: center;
+    background-color: aliceblue;
+    width: 40%;
+    margin-left: 30%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.whoseCards {
+    text-align: center;
+    color: aliceblue;
+    font-weight: bold;
+}
