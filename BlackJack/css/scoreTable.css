@@ -32,3 +32,23 @@
 #gameCount {
     font-weight: bold;
 }
+
+#totalCount {
+    text-align: center;
+    font-weight: bold;
+    color: aliceblue;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+#win {
+    color: greenyellow;
+}
+#lose {
+    color: rgb(249, 162, 162);
+}
+#tie {
+    color: rgb(220, 219, 219);
+}
