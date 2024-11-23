@@ -1,6 +1,7 @@
 p {
     font-family: Arial, Helvetica, sans-serif;
 }
+
 body {
     background-image: linear-gradient(black, white);
     background-size: 100%;
@@ -41,7 +42,7 @@ body {
     display: inline-block;
     font-size: large;
     color:cornflowerblue;
-    background-color: rgb(254, 255, 247);
+    background-color: aliceblue;
     border-color: aliceblue;
     border-style: solid;
     border-width: 2px;
@@ -53,9 +54,9 @@ body {
     transition: all 0.3s;
 }
 #reset-button:hover {
-    color: rgb(254, 255, 247);
+    color: aliceblue;
     background-color: cornflowerblue;
-    border-color: rgb(254, 255, 247);
+    border-color: aliceblue;
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 2px;
@@ -97,6 +98,7 @@ body {
     margin-right: 2%;
     width: 100%;
 }
+
 .card-image-front {
     display: inline-block;
     margin-right: 2%;
@@ -120,46 +122,54 @@ body {
     flex-direction: row;
     justify-content: center;
 }
+
 #dealersTab {
     display: flex;
     justify-content: center;
     flex-direction: row;
 }
+
 #dealersScore {
     color: cornflowerblue;
     font-size: large;
     font-weight: bold;
 }
+
 #dealersScoreResult {
     color: black;
     margin-left: 1%;
     font-size: large;
 }
+
 #score {
-    display: flex; /* Should be flex*/
+    display: flex; 
     justify-content: center;
     color: cornflowerblue;
     font-size: large;
     font-weight: bold;
 }
+
 #scoreResult {
     color: black;
     margin-left: 3%;
     font-size: large;
 }
+
 #winLose {
     color: rgb(55, 217, 85);
     font-size: large;
     font-weight: bold;
     margin-left: 5%;
 }
+
 .buttons {
-    display: flex; /* Should be flex*/
+    display: flex;
     justify-content: center;
 }
+
 #newCard {
-    display: inline-block; /* Should be inline-block*/
-    background-color: rgb(233, 255, 231);
+    display: inline-block; 
+    background-color: aliceblue;
     border-color: cornflowerblue;
     border-style: solid;
     border-radius: 10px;
@@ -172,7 +182,7 @@ body {
 }
 #newCard:hover {
     background-color: cornflowerblue;
-    color: rgb(233, 255, 231);
+    color: aliceblue;
     border-width: 0px;
     padding-right: 8px;
     padding-left: 8px;
@@ -180,8 +190,9 @@ body {
 #newCard:active {
     opacity: 0.7;
 }
+
 #stand {
-    display: inline-block; /* Should be inline-block*/
+    display: inline-block; 
     background-color: rgb(74, 158, 242);
     border-color: cornflowerblue;
     border-style: solid;
@@ -194,19 +205,21 @@ body {
     transition: all 0.3s;
 }
 #stand:hover {
-    background-color: rgb(233, 255, 231);
+    background-color: aliceblue;
     border-color: rgb(74, 158, 242);
     color: rgb(74, 158, 242);
 }
 #stand:active {
     opacity: 0.7;
 }
+
 #restart {
     display: none; /* Should be inline-block*/
     background-color: rgb(217, 80, 101);
     border-width: 0px;
     border-radius: 10px;
-    color: rgb(233, 255, 231);
+    border-style: solid;
+    color: aliceblue;
     margin-bottom: 10%;
     font-weight: bold;
     cursor: pointer;
@@ -217,7 +230,7 @@ body {
     padding-right: 10px;
 }
 #restart:hover {
-    background-color: rgb(233, 255, 231);
+    background-color: aliceblue;
     border-color: rgb(217, 80, 101);
     border-width: 2px;
     border-style: solid;
@@ -230,9 +243,10 @@ body {
 #restart:active {
     opacity: 0.7;
 }
+
 #start {
-    display: inline-block; /* Should be inline-block*/
-    background-color: rgb(233, 255, 231);
+    display: inline-block; 
+    background-color: aliceblue;
     border-color: cornflowerblue;
     border-style: solid;
     border-radius: 10px;
@@ -246,7 +260,7 @@ body {
 #start:hover {
     background-color: cornflowerblue;
     border-width: 0px;
-    color: rgb(233, 255, 231);
+    color: aliceblue;
     padding-left: 8px;
     padding-right: 8px;
     padding-bottom: 5px;
@@ -257,7 +271,7 @@ body {
 }
 
 #startGame {
-    display: flex; /* should be flex*/
+    display: flex; 
     justify-content: center;
     background-color: aliceblue;
     width: 40%;
