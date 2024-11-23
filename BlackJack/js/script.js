@@ -96,6 +96,7 @@ function newCard() {
         winLose = "false";
         gameCounter();
     } 
+    if (score == 21) stand();
 }
 
 function stand() {
