@@ -1,130 +1,200 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlackJack</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/scoreTable.css">
-</head>
-<body>
-    <div id="top-tab">
-        <div id="left-section">
-            <button type="reset" onClick="window.location.reload();" id="reset-button">Reset</button>
-        </div>
-        <div id="middle-section">
-            <p id="game-title">BLACKJACK GAME</p>
-        </div>
-        <div id="right-section"></div>
-    </div>
+var gameCount = 1;
+var winLose = false;
+var winLoseStatement;
+var winLoseColor;
 
-    <div id="game-page">
-        <p class="whoseCards">Dealer's Cards:</p>
-        <div class="card-tab">
-            <div class="cards" id="dcard1">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="dcard2">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="dcard3">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="dcard4">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="dcard5">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="dcard6">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="dcard7">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="dcard8">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="dcard9">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-        </div>    
-        <p class="whoseCards">Your Cards:</p>    
-        <div class="card-tab">
-            <div class="cards" id="card1">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="card2">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="card3">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="card4">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="card5">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="card6">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="card7">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="card8">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-            <div class="cards" id="card9">
-                <img class="card-image" src="images/PNG-cards-1.3/back.png">
-            </div>
-        </div>
+var cardCount = 1;
+var aceCount = 0;
+var score = 0;
+var cards = [];
 
-        <div id="startGame">
-            <button id="start" onclick="startGame()">Start</button>
-        </div>
+var dcardCount = 1;
+var daceCount = 0;
+var dscore = 0;
 
-        <div id="game-tab">
-            <div id="dealersTab">
-                <p id="dealersScore">Dealer's Score:</p>
-                <p id="dealersScoreResult">&nbsp;</p>
-            </div>
-            <div class="text">
-                <p id="score">Your Score: </p>
-                <p id="scoreResult">&nbsp;</p>
-                <p id="winLose">&nbsp;</p>
-            </div>
-            <div class="buttons">
-                <button id="newCard" onclick="newCard()">New Card</button>
-                <button id="stand" onclick="stand()">Stand</button>
-                <button id="restart" onclick="restart()">New Game</button>
-            </div>
-        </div>
-    </div>
+function startGame() {
+    document.getElementById("startGame").style.display = "none";
+    document.getElementById("newCard").style.display = "inline-block";
+    document.getElementById("stand").style.display = "inline-block";
+    document.getElementById("game-tab").style.display = "inline-block";
+    for (let i = 0; i < 52; i++)
+        cards[cards.length] = i;
 
-    <div id="score-table-tab">
-        <div id="score-table-div">
-            <table id="score-table" border="0">
-                <thead id="thead">
-                    <tr>
-                        <th class="table-header">Game #</th>
-                        <th class="table-header">Dealer's Score</th>
-                        <th class="table-header">Your Score</th>
-                        <th class="table-header">Win or Lose</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
-                    <!-- <tr> -->
-                    <!-- <td class="table-body" id="gameCount"></td> -->
-                    <!-- <td class="table-body" id="dealersScore"></td> -->
-                    <!-- <td class="table-body" id="yourScore"></td> -->
-                    <!-- <td class="table-body" id="winOrLose"></td> -->
-                    <!-- </tr> -->
-                </tbody>
-            </table>
-        </div>
-    </div>
 
-    <script src="js/script.js"></script>
-</body>
-</html>
+    let randomNumber = Math.floor(Math.random() * 52)
+    while (cards[randomNumber] == -1) {
+        randomNumber = Math.floor(Math.random() * 52);
+    }
+
+    /* Determining the shape of the card.*/
+    let shape;
+    if (randomNumber % 4 == 0)
+        shape = "clubs";
+    else if (randomNumber % 4 == 1)
+        shape = "diamonds";
+    else if (randomNumber % 4 == 2)
+        shape = "hearts";
+    else if (randomNumber % 4 == 3)
+        shape = "spades";
+
+    /* Displaying the card and updating the score.*/
+    let num = Math.floor(randomNumber / 4) + 2;
+    document.getElementById('dcard'+dcardCount).innerHTML = "<img class='card-image-front' src='images/PNG-cards-1.3/"+num+"_of_"+shape+".png'>";
+    
+    if (num >= 12) num = 10;
+    dscore += num;
+
+    dcardCount++;
+    cards[randomNumber] = -1;
+    document.getElementById("dealersScoreResult").innerHTML = dscore;
+
+    newCard();
+}
+
+function newCard() {
+    /* Picking a random card.*/
+    let randomNumber = Math.floor(Math.random() * 52)
+    while (cards[randomNumber] == -1) {
+        randomNumber = Math.floor(Math.random() * 52);
+    }
+       
+    /* Determining the shape of the card.*/
+    let shape;
+    if (randomNumber % 4 == 0)
+        shape = "clubs";
+    else if (randomNumber % 4 == 1)
+        shape = "diamonds";
+    else if (randomNumber % 4 == 2)
+        shape = "hearts";
+    else if (randomNumber % 4 == 3)
+        shape = "spades";
+
+    /* Displaying the card and updating the score.*/
+    let number = Math.floor(randomNumber / 4) + 2;
+    document.getElementById('card'+cardCount).innerHTML = "<img class='card-image-front' src='images/PNG-cards-1.3/"+number+"_of_"+shape+".png'>";
+    
+    if (number >= 12) number = 10;
+    score += number;
+
+    if (number == 11) aceCount++;
+
+    while (aceCount > 0 && score > 21) {
+        aceCount--;
+        score -= 10; 
+    }
+    cardCount++;
+    cards[randomNumber] = -1;
+    document.getElementById("scoreResult").innerHTML = score;
+
+    if (score > 21) {
+        document.getElementById("winLose").style.display = "inline-block";
+        document.getElementById("winLose").innerHTML = "You Lose.";
+        document.getElementById("winLose").style.color = "red";
+        document.getElementById("newCard").style.display = "none";
+        document.getElementById("stand").style.display = "none";
+        document.getElementById("restart").style.display = "inline-block";
+        winLose = false;
+        gameCounter();
+    }
+}
+
+function stand() {
+    while (dscore < 17) {
+        let randomNumber = Math.floor(Math.random() * 52)
+        while (cards[randomNumber] == -1) {
+            randomNumber = Math.floor(Math.random() * 52);
+        }
+        /* Determining the shape of the card.*/
+        let shape;
+        if (randomNumber % 4 == 0)
+            shape = "clubs";
+        else if (randomNumber % 4 == 1)
+            shape = "diamonds";
+        else if (randomNumber % 4 == 2)
+            shape = "hearts";
+        else if (randomNumber % 4 == 3)
+            shape = "spades";
+
+        /* Displaying the card and updating the score.*/
+        let num = Math.floor(randomNumber / 4) + 2;
+        document.getElementById('dcard'+dcardCount).innerHTML = "<img class='card-image-front' src='images/PNG-cards-1.3/"+num+"_of_"+shape+".png'>";
+    
+        if (num >= 12) num = 10;
+        dscore += num;
+
+        if (num == 11) daceCount++;
+         
+        while (daceCount > 0 && dscore > 21) {
+            daceCount--;
+            dscore -= 10; 
+        }
+        dcardCount++;
+        cards[randomNumber] = -1;
+    }
+    document.getElementById("dealersScoreResult").innerHTML = dscore;
+    if (dscore > 21) {
+        document.getElementById("winLose").style.display = "inline-block";
+        document.getElementById("winLose").innerHTML = "You Win.";
+        document.getElementById("winLose").style.color = "rgb(55, 217, 85)";
+        document.getElementById("newCard").style.display = "none";
+        document.getElementById("stand").style.display = "none";
+        document.getElementById("restart").style.display = "inline-block";
+        winLose = true;
+        gameCounter();
+    } else if (dscore >= score) {
+        document.getElementById("winLose").style.display = "inline-block";
+        document.getElementById("winLose").innerHTML = "You lose.";
+        document.getElementById("winLose").style.color = "red";
+        document.getElementById("newCard").style.display = "none";
+        document.getElementById("stand").style.display = "none";
+        document.getElementById("restart").style.display = "inline-block";
+        winLose = false;
+        gameCounter();
+    } else if (dscore < score) {
+        document.getElementById("winLose").style.display = "inline-block";
+        document.getElementById("winLose").innerHTML = "You Win.";
+        document.getElementById("winLose").style.color = "rgb(55, 217, 85)";
+        document.getElementById("newCard").style.display = "none";
+        document.getElementById("stand").style.display = "none";
+        document.getElementById("restart").style.display = "inline-block";
+        winLose = true;
+        gameCounter();
+    }
+}
+
+function restart() {
+    for(let i = 1; i < 10; i++)
+        document.getElementById('card'+i).innerHTML = "<img class='card-image' src='images/PNG-cards-1.3/back.png'>";
+    for(let i = 1; i < 10; i++)
+        document.getElementById('dcard'+i).innerHTML = "<img class='card-image' src='images/PNG-cards-1.3/back.png'>";
+    document.getElementById("restart").style.display = "none";
+
+    document.getElementById("winLose").style.display = "none";
+    cardCount = 1;
+    score = 0;
+
+    dcardCount = 1;
+    dscore = 0;
+    cards = [];
+
+    startGame();
+}
+
+function gameCounter() {
+    if (winLose == true) {
+        winLoseStatement = "Win";
+        winLoseColor = "greenyellow";
+    } else {
+        winLoseStatement = "Lose";
+        winLoseColor = "rgb(249, 162, 162)";
+    }
+    document.getElementById("tbody").innerHTML += 
+    "<tr>" + 
+        "<td class='table-body' id='gameCount'>" + gameCount + "</td>" +
+        "<td class='table-body' id='dealersScoreTable'>"+ dscore + "</td>" + 
+        "<td class='table-body' id='yourScoreTable'>"+ score + "</td>" + 
+        "<td class='table-body' style='color:" + winLoseColor + ";' id='winOrLose'>" + winLoseStatement + "</td>" +
+    "</tr>";
+    gameCount++;
+}
+console.log("created by G");
