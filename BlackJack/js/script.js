@@ -135,6 +135,8 @@ function stand() {
         }
         dcardCount++;
         cards[randomNumber] = -1;
+
+        if (dscore > score) break;
     }
     document.getElementById("dealersScoreResult").innerHTML = dscore;
     if ((score == 21) && (dscore != 21)) {
