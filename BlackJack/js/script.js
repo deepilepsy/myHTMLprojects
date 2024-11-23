@@ -132,7 +132,16 @@ function stand() {
         cards[randomNumber] = -1;
     }
     document.getElementById("dealersScoreResult").innerHTML = dscore;
-    if (dscore > 21) {
+    if ((score == 21) && (dscore != 21)) {
+        document.getElementById("winLose").style.display = "inline-block";
+        document.getElementById("winLose").innerHTML = "BlackJack!";
+        document.getElementById("winLose").style.color = "darkorchid";
+        document.getElementById("newCard").style.display = "none";
+        document.getElementById("stand").style.display = "none";
+        document.getElementById("restart").style.display = "inline-block";
+        winLose = "true";
+        gameCounter();
+    } else if (dscore > 21) {
         document.getElementById("winLose").style.display = "inline-block";
         document.getElementById("winLose").innerHTML = "You Win.";
         document.getElementById("winLose").style.color = "rgb(55, 217, 85)";
@@ -159,16 +168,7 @@ function stand() {
         document.getElementById("restart").style.display = "inline-block";
         winLose = "true";
         gameCounter();
-    } else if ((score == 21) && (dscore != 21)) {
-        document.getElementById("winLose").style.display = "inline-block";
-        document.getElementById("winLose").innerHTML = "BlackJack!";
-        document.getElementById("winLose").style.color = "rgb(55, 217, 85)";
-        document.getElementById("newCard").style.display = "none";
-        document.getElementById("stand").style.display = "none";
-        document.getElementById("restart").style.display = "inline-block";
-        winLose = "true";
-        gameCounter();
-    } else if (score == dscore) {
+    }  else if (score == dscore) {
         document.getElementById("winLose").style.display = "inline-block";
         document.getElementById("winLose").innerHTML = "Tie.";
         document.getElementById("winLose").style.color = "dimgray";
@@ -220,4 +220,3 @@ function gameCounter() {
 }
 
 console.log("created by G");
-
