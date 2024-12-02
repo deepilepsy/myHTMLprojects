@@ -16,11 +16,14 @@ var dcardCount = 1;
 var daceCount = 0;
 var dscore = 0;
 
+
 function startGame() {
     document.getElementById("startGame").style.display = "none";
     document.getElementById("newCard").style.display = "inline-block";
     document.getElementById("stand").style.display = "inline-block";
     document.getElementById("game-tab").style.display = "inline-block";
+    document.getElementById("dealersCards").style.display = "block";
+    document.getElementById("yourCards").style.display = "block";
     for (let i = 0; i < 52; i++)
         cards[cards.length] = i;
 
@@ -42,7 +45,9 @@ function startGame() {
 
     /* Displaying the card and updating the score.*/
     let num = Math.floor(randomNumber / 4) + 2;
+    document.getElementById('dcard'+dcardCount).style.display = "inline-block";
     document.getElementById('dcard'+dcardCount).innerHTML = "<img class='card-image-front' src='images/PNG-cards-1.3/"+num+"_of_"+shape+".png'>";
+    
     
     if (num >= 12) num = 10;
     dscore += num;
@@ -50,6 +55,8 @@ function startGame() {
     dcardCount++;
     cards[randomNumber] = -1;
     document.getElementById("dealersScoreResult").innerHTML = dscore;
+
+    document.getElementById('dcard2').style.display = "inline-block";
 
     newCard();
 }
@@ -75,7 +82,9 @@ function newCard() {
     /* Displaying the card and updating the score.*/
     let number = Math.floor(randomNumber / 4) + 2;
 
+    document.getElementById('card'+cardCount).style.display = "inline-block";
     document.getElementById('card'+cardCount).innerHTML = "<img class='card-image-front' src='images/PNG-cards-1.3/"+number+"_of_"+shape+".png'>";
+    
     
     if (number >= 12) number = 10;
     score += number;
@@ -123,6 +132,7 @@ function stand() {
         /* Displaying the card and updating the score.*/
         let num = Math.floor(randomNumber / 4) + 2;
         document.getElementById('dcard'+dcardCount).innerHTML = "<img class='card-image-front' src='images/PNG-cards-1.3/"+num+"_of_"+shape+".png'>";
+        document.getElementById('dcard'+dcardCount).style.display = "inline-block";
     
         if (num >= 12) num = 10;
         dscore += num;
@@ -188,10 +198,12 @@ function stand() {
 }
 
 function restart() {
-    for(let i = 1; i < 10; i++)
+    for (let i = 1; i < 10; i++) {
         document.getElementById('card'+i).innerHTML = "<img class='card-image' src='images/PNG-cards-1.3/back.png'>";
-    for(let i = 1; i < 10; i++)
         document.getElementById('dcard'+i).innerHTML = "<img class='card-image' src='images/PNG-cards-1.3/back.png'>";
+        document.getElementById('card'+i).style.display = "none";
+        document.getElementById('dcard'+i).style.display = "none";
+    }
     document.getElementById("restart").style.display = "none";
 
     document.getElementById("winLose").style.display = "none";
@@ -226,6 +238,7 @@ function gameCounter() {
         document.getElementById("tie").innerHTML = tieCounter + " Tie";
     }
     let winRate = Math.floor((winCounter / (gameCount - tieCounter)) * 100);
+    if (winCounter == 0 && loseCounter == 0) winrate = 0;
     document.getElementById("winRate").innerHTML = "Winrate: %" + winRate;
 
     if (gameCount % 2 == 0) {
@@ -243,4 +256,7 @@ function gameCounter() {
     gameCount++;
 }
 
-console.log("created by G");
+
+function cardCreater(cardNumber,) {
+
+}
