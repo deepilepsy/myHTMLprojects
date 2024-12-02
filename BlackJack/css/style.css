@@ -179,13 +179,17 @@ body {
     cursor: pointer;
     margin-right: 3%;
     transition: all 0.3s;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 100%;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
 }
 #newCard:hover {
     background-color: cornflowerblue;
     color: aliceblue;
-    border-width: 0px;
-    padding-right: 8px;
-    padding-left: 8px;
+    border-color: cornflowerblue;
 }
 #newCard:active {
     opacity: 0.7;
@@ -203,6 +207,12 @@ body {
     cursor: pointer;
     margin-right: 3%;
     transition: all 0.3s;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 100%;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
 }
 #stand:hover {
     background-color: aliceblue;
@@ -216,7 +226,8 @@ body {
 #restart {
     display: none; /* Should be inline-block*/
     background-color: rgb(217, 80, 101);
-    border-width: 0px;
+    border-width: 2px;
+    border-color: rgb(217, 80, 101);
     border-radius: 10px;
     border-style: solid;
     color: aliceblue;
@@ -224,10 +235,12 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 100%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3), -2px -2px 20px rgba(217, 80, 101, 0.5), 2px -2px 20px rgba(217, 80, 101, 0.5);
 }
 #restart:hover {
     background-color: aliceblue;
@@ -235,10 +248,6 @@ body {
     border-width: 2px;
     border-style: solid;
     color: rgb(217, 80, 101);
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 8px;
-    padding-right: 8px;
 }
 #restart:active {
     opacity: 0.7;
@@ -251,20 +260,22 @@ body {
     border-style: solid;
     border-radius: 10px;
     color: cornflowerblue;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 100%;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
 }
 #start:hover {
     background-color: cornflowerblue;
-    border-width: 0px;
+    border-color: cornflowerblue;
     color: aliceblue;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-bottom: 5px;
-    padding-top: 4px;
 }
 #start:active {
     opacity: 0.7;
@@ -284,4 +295,66 @@ body {
     text-align: center;
     color: aliceblue;
     font-weight: bold;
+}
+
+#dcard1 {
+    display: none;
+}
+#dcard2 {
+    display: none;
+}
+#dcard3 {
+    display: none;
+}
+#dcard4 {
+    display: none;
+}
+#dcard5 {
+    display: none;
+}
+#dcard6 {
+    display: none;
+}
+#dcard7 {
+    display: none;
+}
+#dcard8 {
+    display: none;
+}
+#dcard9 {
+    display: none;
+}
+#card1 {
+    display: none;
+}
+#card2 {
+    display: none;
+}
+#card3 {
+    display: none;
+}
+#card4 {
+    display: none;
+}
+#card5 {
+    display: none;
+}
+#card6 {
+    display: none;
+}
+#card7 {
+    display: none;
+}
+#card8 {
+    display: none;
+}
+#card9 {
+    display: none;
+}
+
+#dealersCards {
+    display: none;
+}
+#yourCards {
+    display: none;
 }
