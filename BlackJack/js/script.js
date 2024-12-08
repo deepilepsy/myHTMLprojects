@@ -1,4 +1,3 @@
-/* implement green restart button and red restart button */
 var winCounter = 0;
 var loseCounter = 0;
 var tieCounter = 0;
@@ -155,7 +154,7 @@ function stand() {
         document.getElementById("winLose").style.color = "darkorchid";
         document.getElementById("newCard").style.display = "none";
         document.getElementById("stand").style.display = "none";
-        document.getElementById("restartGreen").style.display = "inline-block";
+        document.getElementById("restartPurple").style.display = "inline-block";
         winLose = "true";
         gameCounter();
     } else if (dscore > 21) {
@@ -207,6 +206,7 @@ function restart() {
     document.getElementById("restartRed").style.display = "none";
     document.getElementById("restartGreen").style.display = "none";
     document.getElementById("restartGray").style.display = "none";
+    document.getElementById("restartPurple").style.display = "none";
 
     document.getElementById("winLose").style.display = "none";
     cardCount = 1;
