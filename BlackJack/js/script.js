@@ -1,3 +1,4 @@
+/* implement green restart button and red restart button */
 var winCounter = 0;
 var loseCounter = 0;
 var tieCounter = 0;
@@ -15,7 +16,6 @@ var cards = [];
 var dcardCount = 1;
 var daceCount = 0;
 var dscore = 0;
-
 
 function startGame() {
     document.getElementById("startGame").style.display = "none";
@@ -105,7 +105,7 @@ function newCard() {
         document.getElementById("winLose").style.color = "red";
         document.getElementById("newCard").style.display = "none";
         document.getElementById("stand").style.display = "none";
-        document.getElementById("restart").style.display = "inline-block";
+        document.getElementById("restartRed").style.display = "inline-block";
         winLose = "false";
         gameCounter();
     } 
@@ -155,7 +155,7 @@ function stand() {
         document.getElementById("winLose").style.color = "darkorchid";
         document.getElementById("newCard").style.display = "none";
         document.getElementById("stand").style.display = "none";
-        document.getElementById("restart").style.display = "inline-block";
+        document.getElementById("restartGreen").style.display = "inline-block";
         winLose = "true";
         gameCounter();
     } else if (dscore > 21) {
@@ -164,7 +164,7 @@ function stand() {
         document.getElementById("winLose").style.color = "rgb(55, 217, 85)";
         document.getElementById("newCard").style.display = "none";
         document.getElementById("stand").style.display = "none";
-        document.getElementById("restart").style.display = "inline-block";
+        document.getElementById("restartGreen").style.display = "inline-block";
         winLose = "true";
         gameCounter();
     } else if (dscore > score) {
@@ -173,7 +173,7 @@ function stand() {
         document.getElementById("winLose").style.color = "red";
         document.getElementById("newCard").style.display = "none";
         document.getElementById("stand").style.display = "none";
-        document.getElementById("restart").style.display = "inline-block";
+        document.getElementById("restartRed").style.display = "inline-block";
         winLose = "false";
         gameCounter();
     } else if (dscore < score) {
@@ -182,7 +182,7 @@ function stand() {
         document.getElementById("winLose").style.color = "rgb(55, 217, 85)";
         document.getElementById("newCard").style.display = "none";
         document.getElementById("stand").style.display = "none";
-        document.getElementById("restart").style.display = "inline-block";
+        document.getElementById("restartGreen").style.display = "inline-block";
         winLose = "true";
         gameCounter();
     }  else if (score == dscore) {
@@ -191,7 +191,7 @@ function stand() {
         document.getElementById("winLose").style.color = "dimgray";
         document.getElementById("newCard").style.display = "none";
         document.getElementById("stand").style.display = "none";
-        document.getElementById("restart").style.display = "inline-block";
+        document.getElementById("restartGray").style.display = "inline-block";
         winLose = "tie";
         gameCounter();
     }
@@ -204,7 +204,9 @@ function restart() {
         document.getElementById('card'+i).style.display = "none";
         document.getElementById('dcard'+i).style.display = "none";
     }
-    document.getElementById("restart").style.display = "none";
+    document.getElementById("restartRed").style.display = "none";
+    document.getElementById("restartGreen").style.display = "none";
+    document.getElementById("restartGray").style.display = "none";
 
     document.getElementById("winLose").style.display = "none";
     cardCount = 1;
